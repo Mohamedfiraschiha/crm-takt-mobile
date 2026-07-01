@@ -7,7 +7,10 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "CRM Takt utilise votre position pour vérifier que vous êtes au bureau lors du pointage."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -15,10 +18,25 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "CRM Takt utilise votre position pour vérifier que vous êtes au bureau lors du pointage."
+        }
+      ],
+      "expo-font",
+      "@react-native-community/datetimepicker"
+    ]
   }
 }
